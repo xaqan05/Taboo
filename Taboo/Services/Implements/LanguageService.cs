@@ -11,12 +11,28 @@ namespace Taboo.Services.Implements
     {
         public async Task CreateAsync(LanguageCreateDto dto)
         {
-            await _context.Languages.AddAsync(new Language
+            bool condition = true;
+
+            var datas = await _context.Languages.ToListAsync();
+
+            foreach (var data in datas)
             {
-                Code = dto.Code,
-                Name = dto.Name,
-                Icon = dto.Icon,
-            });
+                if(data.Code == dto.Code || data.Name == dto.Name)
+                {
+                    condition = false;
+                    break;
+                }
+            }
+
+            if (condition)
+            {
+                await _context.Languages.AddAsync(new Language
+                {
+                    Code = dto.Code,
+                    Name = dto.Name,
+                    Icon = dto.IconUrl,
+                });
+            }
 
             await _context.SaveChangesAsync();
         }
@@ -24,7 +40,10 @@ namespace Taboo.Services.Implements
         public async Task DeleteAsync(string code)
         {
             var data = await _context.Languages.FindAsync(code);
-            _context.Languages.Remove(data);
+            if (data != null)
+            {
+                _context.Languages.Remove(data);
+            }
             await _context.SaveChangesAsync();
         }
 
@@ -41,12 +60,13 @@ namespace Taboo.Services.Implements
         public async Task UpdateAsync(LanguageUpdateDto dto, string code)
         {
             var data = await _context.Languages.FindAsync(code);
-
-            data.Name = dto.Name;
-            data.Icon = dto.Icon;
+            if (data != null)
+            {
+                data.Name = dto.Name;
+                data.Icon = dto.Icon;
+            }
 
             await _context.SaveChangesAsync();
-
         }
 
     }

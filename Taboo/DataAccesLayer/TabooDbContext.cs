@@ -28,7 +28,7 @@ namespace Taboo.DataAccesLayer
                 e.HasData(new Language
                 {
                     Code = "az",
-                    Name = "Azərbaycan",
+                    Name = "Azərbaycan", 
                     Icon = "string"
                 });
             });

@@ -143,3 +143,6 @@ C:\Users\II novbe\Desktop\Task\Taboo\Taboo\obj\Debug\net8.0\refint\Taboo.dll
 C:\Users\II novbe\Desktop\Task\Taboo\Taboo\obj\Debug\net8.0\Taboo.pdb
 C:\Users\II novbe\Desktop\Task\Taboo\Taboo\obj\Debug\net8.0\Taboo.genruntimeconfig.cache
 C:\Users\II novbe\Desktop\Task\Taboo\Taboo\obj\Debug\net8.0\ref\Taboo.dll
+C:\Users\II novbe\Desktop\Task\Taboo\Taboo\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\II novbe\Desktop\Task\Taboo\Taboo\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\II novbe\Desktop\Task\Taboo\Taboo\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

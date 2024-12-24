@@ -1,4 +1,6 @@
 
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Taboo.DataAccesLayer;
 using Taboo.Services.Abstracts;
@@ -17,6 +19,10 @@ namespace Taboo
             builder.Services.AddControllers();
 
             builder.Services.AddDbContext<TabooDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("MsSql")));
+
+            builder.Services.AddFluentValidationAutoValidation();
+
+            builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
             builder.Services.AddScoped<ILanguageService, LanguageService>();
 
